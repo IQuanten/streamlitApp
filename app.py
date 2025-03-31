@@ -95,7 +95,7 @@ def get_translations(language):
         }
     }
     
-    return translations.get(language, translations["en"])
+    return translations.get(language, translations["nl"])
 
 # Function to display the office days based on teamday and CLI argument
 def display_office_days():    
@@ -114,7 +114,7 @@ def display_office_days():
     # Get the selected language from the sidebar
     language = st.sidebar.selectbox(
         "Select your language",
-        ("English", "Français", "Nederlands")
+        ("Nederlands", "Français", "English")
     )
 
     # Convert the selected language to the appropriate key (en, fr, nl)
