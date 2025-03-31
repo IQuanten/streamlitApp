@@ -52,29 +52,46 @@ def get_translations(language):
         "en": {
             "title": "Office Schedule",
             "teamday_label": "The current team day is: ",
-            "second_office_day_label": "Your second office day for this week is: ",
+            "second_office_day_label": "The second office day for this week is: ",
             "note": "The second office day may vary depending on circumstances",
             "table_header": ["Type of office day", "Day"],
             "teamday": "Team day",
-            "second_office_day": "Second Office Day"
+            "second_office_day": "Second Office Day",
+            "Monday": "Monday",
+            "Tuesday": "Tuesday",
+            "Wednesday": "Wednesday",
+            "Thursday": "Thursday",
+            "Friday": "Friday",
+
         },
         "fr": {
             "title": "Horaire du bureau",
             "teamday_label": "La journée actuelle de l'équipe est: ",
-            "second_office_day_label": "Votre deuxième jour de bureau pour cette semaine est: ",
+            "second_office_day_label": "Le deuxième jour de bureau de cette semaine est: ",
             "note": "Le deuxième jour de bureau peut varier selon les circonstances",
             "table_header": ["Jour", "Date"],
             "teamday": "Jour d'équipe",
-            "second_office_day": "Deuxième jour de bureau"
+            "second_office_day": "Deuxième jour de bureau",
+            "Monday": "Lundi",
+            "Tuesday": "Mardi",
+            "Wednesday": "Mercredi",
+            "Thursday": "Jeudi",
+            "Friday": "Vendredi",
+
         },
         "nl": {
             "title": "Kantoorrooster",
             "teamday_label": "De huidige teamdag is: ",
-            "second_office_day_label": "Je tweede kantoordag voor deze week is: ",
+            "second_office_day_label": "De tweede kantoordag voor deze week is: ",
             "note": "De tweede kantoordag kan variëren afhankelijk van de omstandigheden",
             "table_header": ["Type kantoor dag", "Dag"],
             "teamday": "Teamdag",
-            "second_office_day": "Tweede kantoordag"
+            "second_office_day": "Tweede kantoordag",
+            "Monday": "Maandag",
+            "Tuesday": "Dinsdag",
+            "Wednesday": "Woensdag",
+            "Thursday": "Donderdag",
+            "Friday": "Vrijdag",
         }
     }
     
@@ -114,14 +131,14 @@ def display_office_days():
     
     # Display the results
     st.title(translations["title"])
-    st.write(f"{translations['teamday_label']}**{teamday}**")
-    st.write(f"{translations['second_office_day_label']}**{second_office_day}**")
+    st.write(f"{translations['teamday_label']}**{translations[teamday]}**")
+    st.write(f"{translations['second_office_day_label']}**{translations[second_office_day]}**")
     st.write(f"**Note**: {translations['note']}")
 
     # Display the days in a table (convert dictionary to DataFrame)
     office_schedule = {
         translations["table_header"][0]: [translations["teamday"], translations["second_office_day"]],
-        translations["table_header"][1]: [teamday, second_office_day]
+        translations["table_header"][1]: [translations[teamday], translations[second_office_day]]
     }
     
     # Create a DataFrame
