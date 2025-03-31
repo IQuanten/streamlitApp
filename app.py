@@ -51,27 +51,27 @@ def get_translations(language):
     translations = {
         "en": {
             "title": "Office Schedule",
-            "teamday_label": "Your team day for this month is: ",
+            "teamday_label": "The current team day is: ",
             "second_office_day_label": "Your second office day for this week is: ",
-            "note": "This day may vary depending on circumstances",
+            "note": "The second office day may vary depending on circumstances",
             "table_header": ["Type of office day", "Day"],
             "teamday": "Team day",
             "second_office_day": "Second Office Day"
         },
         "fr": {
             "title": "Horaire du bureau",
-            "teamday_label": "Votre jour d'équipe pour ce mois est: ",
-            "second_office_day_label": "Votre deuxième jour de bureau pour cette semaine est : ",
-            "note": "Ce jour peut varier en fonction des circonstances",
+            "teamday_label": "La journée actuelle de l'équipe est: ",
+            "second_office_day_label": "Votre deuxième jour de bureau pour cette semaine est: ",
+            "note": "Le deuxième jour de bureau peut varier selon les circonstances",
             "table_header": ["Jour", "Date"],
             "teamday": "Jour d'équipe",
             "second_office_day": "Deuxième jour de bureau"
         },
         "nl": {
             "title": "Kantoorrooster",
-            "teamday_label": "Je teamdag voor deze maand is: ",
+            "teamday_label": "De huidige teamdag is: ",
             "second_office_day_label": "Je tweede kantoordag voor deze week is: ",
-            "note": "Deze dag kan variëren afhankelijk van omstandigheden",
+            "note": "De tweede kantoordag kan variëren afhankelijk van de omstandigheden",
             "table_header": ["Type kantoor dag", "Dag"],
             "teamday": "Teamdag",
             "second_office_day": "Tweede kantoordag"
@@ -124,7 +124,7 @@ def display_office_days():
         translations["table_header"][1]: [teamday, second_office_day]
     }
     
-    # Create a DataFrame and set index=False to remove the index column
+    # Create a DataFrame
     df = pd.DataFrame(office_schedule)
     
     # Display the table without the index column
