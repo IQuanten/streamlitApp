@@ -7,11 +7,8 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --upgrade pip
-
 # Install the required dependencies
-RUN pip install streamlit pandas
+RUN pip install -r requirements.txt
 
 # Expose the port Streamlit will run on
 EXPOSE 8501
