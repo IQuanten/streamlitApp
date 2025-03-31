@@ -66,13 +66,5 @@ If running via docker, run via the following command: **docker run --rm -d -p 80
 
 **Info**: You can make use of the optional arg `--second-office-day` by passing `-- --second-office-day Thursday` for example.
 
-
-
-### Explanation:
-- **Project Overview**: Explains what the app does (calculating team day, second office day, and manual override).
-- **Installation Instructions**: How to clone the repo and install dependencies.
-- **Usage Instructions**: Includes commands for running the app, as well as an explanation of how to use the manual override feature with CLI arguments.
-- **Logic for Second Office Day**: Explains the rules for how the second office day is determined.
-- **Example**: Demonstrates how the second office day works with the default logic and manual override.
-
-This README should give users a basic understanding of how to install, use, and customize the app. Let me know if you need any changes or additions!
+### Extra
+This is was a fun, requested side project.
