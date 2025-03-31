@@ -29,7 +29,7 @@ This is a simple Streamlit web application that calculates and displays your off
 
 To run the app with the automatic calculation of the team day and the second office day:
     
-    streamlit run office_schedule.py
+    streamlit run app.py
 
 This will start a local web server, and the application will be available in your browser. The app will display the calculated team day for the current month, along with the second office day based on the rules.
 ### Manually Set the Second Office Day (CLI Mode)
@@ -38,7 +38,7 @@ To manually set the second office day (e.g., if you want to override the automat
 
 For example, to set the second office day to Tuesday, run the following command:
 
-streamlit run office_schedule.py -- --second-office-day Tuesday
+streamlit run app.py -- --second-office-day Tuesday
 
 Make sure to include the -- before the argument to separate the Streamlit options from your custom arguments.
 
