@@ -44,16 +44,26 @@ def get_second_office_day(teamday):
 
 # Function to calculate the next team day date
 def get_next_teamday_date(current_date, teamday):
+    # Define the start date (March 31, 2025, which is a Monday)
+    start_date = datetime(2025, 3, 31)
     
-    # Get the weekday index for the teamday
-    weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    # List of weekdays in the sequence of the team day cycle
+    weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+    
+    # Calculate the number of 28-day periods that have passed since the start date
+    days_diff = (current_date - start_date).days
+    weeks_diff = days_diff // 28
+    
+    # Determine the current team day index
     teamday_index = weekdays.index(teamday)
     
-    # Calculate how many days until the next teamday
-    days_until_next_teamday = (teamday_index - current_date.weekday()) % 7
-    next_teamday_date = current_date + timedelta(days=days_until_next_teamday)
+    # Calculate the next team day index by moving forward in the cycle
+    next_teamday_index = (teamday_index + 1) % 5  # Rotates to the next day in the cycle
     
-    # If the next teamday is today, we need to add 28 days for the next cycle
+    # Calculate the date of the next team day
+    next_teamday_date = start_date + timedelta(days=(weeks_diff * 28) + next_teamday_index)
+    
+    # If the next teamday is today or in the past, we need to add 28 days to reach the next rotation
     if next_teamday_date <= current_date:
         next_teamday_date += timedelta(days=28)
     
@@ -152,10 +162,12 @@ def display_office_days():
     # Get the translations based on the selected language
     translations = get_translations(selected_language)
     
-    # Calculate the next team day and the time remaining
+    # Calculate the next team day date
     next_teamday_date = get_next_teamday_date(current_date, teamday)
-    time_remaining = next_teamday_date - current_date
-    
+
+    # Calculate the time remaining until the next team day
+    time_remaining_until_next_rotation = next_teamday_date - current_date
+
     # Display the results
     st.title(translations["title"])
     st.write(f"{translations['teamday_label']}**{translations[teamday]}**")
@@ -175,7 +187,7 @@ def display_office_days():
     st.dataframe(df, hide_index=True)
 
     # Display time remaining until the team day changes
-    days_remaining = time_remaining.days
+    days_remaining = time_remaining_until_next_rotation.days
     st.write(f"{translations['time_remaining']}**{days_remaining} {translations['days']}**")
 
 # Create the Streamlit page
