@@ -92,7 +92,7 @@ def get_translations(language):
             "Thursday": "Thursday",
             "Friday": "Friday",
             "time_remaining": "Days remaining until the team day changes: ",
-            "days": "days"
+            "days": "day(s)"
         },
         "fr": {
             "title": "Horaire du bureau",
@@ -108,7 +108,7 @@ def get_translations(language):
             "Thursday": "Jeudi",
             "Friday": "Vendredi",
             "time_remaining": "Jours restants avant le changement de jour d'équipe: ",
-            "days": "jours"
+            "days": "jour(s)"
         },
         "nl": {
             "title": "Kantoorrooster",
@@ -124,7 +124,7 @@ def get_translations(language):
             "Thursday": "Donderdag",
             "Friday": "Vrijdag",
             "time_remaining": "Dagen tot de teamdag verandert: ",
-            "days": "dagen"
+            "days": "dag(en)"
         }
     }
     
